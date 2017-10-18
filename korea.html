@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+h1 {
+	color :white;
+	font-size: 30px;
+	text-align: center;
+}
+body { 
+	
+	background-image:url("galaxy.jpg");
+	}
+	
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: PowderBlue;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: #000;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	
+}
+
+li a.active {
+	background-color: black;
+	color: #DDFBFE;
+}	
+	
+	/* Change the link color on hover */
+li a:hover {
+	background-color: #DDFBFE;
+	color: black;
+}
+
+img	{
+	display: block;
+	margin: 0 auto; 
+	}
+</style>
+</head>
+<body>
+
+<title> Korea </title>
+<h1> My Dream Vacation:Korea</h1>
+
+<ul>
+	<li><a href="dreamvacation.html">Home</a></li>
+	<li><a class="active" href="korea.html">Korea</a></li> 
+	<li><a href="Japan.html">Japan</a></li>
+	<li><a href="france.html">France</a></li>
+</ul>
+
+<!-- this is where you can change the size of the map -->
+<div id="googleMap" style="width:100%;height:500px;"></div>
+
+<script>
+function myMap() {
+//latitude & longitude of where the map is centered
+//how zoomed in the map is
+//mapProp is a dictionary similar to how your css styles worked
+//west and south have negative values for latitude & longitude
+var mapCenter = new google.maps.LatLng(35.9078,127.7669);
+var mapProp= {
+    center:mapCenter,
+    zoom:6,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+};
+//the map has to be created up here before you can add markers to it
+//notice that it's below mapProp because map needs mapProp to exist to work.
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var seoul = new google.maps.LatLng(37.5665, 126.9780);
+var haenam = new google.maps.LatLng(34.5733,126.5989);
+var busan = new google.maps.LatLng(35.1796,129.0756);
+
+//add some markers to the map for each spot
+//step 1: create the marker with a descriptive var name
+//the position is the LatLng object you created earlier
+var seoulMarker = new google.maps.Marker({position: seoul, icon:'korea.png'});
+var haenamMarker = new google.maps.Marker({position: haenam, icon:'korea.png'});
+
+//step 2: add it to the map
+seoulMarker.setMap(map);
+haenamMarker.setMap(map);
+busanMarker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA60oyhCzlPYHXDwmEi2_xFbKbD7hG6zrI&callback=myMap"></script>
+
+<p><img src="seoul.jpg" height="400" width="850"></p>
+<div class="center">
+  <p style="text-align: center;"><font size="5" color="white"> The capital city of Korea is Seoul. Though it is small 
+  nation, the city bustling alive day in and day out. It's often called the city that never
+  goes to sleep. The busy city also is centered around the transportation of buses and 
+  especially subways. The small nation holds unbeatable records for the most efficient 
+  subways in the world that snakes around the whole city of Seoul. The Han River is also a 
+  popular trademark of Seoul, where colorful lights light up the whole city. The nation's 
+  most prettiest side comes to view at night, when the cheerful vibe settles. Tourist, but 
+  also natives roam the night streets of Seoul, enjoying the cheap but delicious street food,
+  but best of all, the company of close friends. </p>
+
+<p><img src="haenam.jpg" height="400" width="850"></p>
+	<p style="text-align: center;"><font size="5" color="white"> Haenam is another Korean city south of Seoul. It is my
+	hometown, though I don't remember much about the place. One particular building in 
+	Haenam attracts the attention of foreign scientist, but also tourists and young natives as well.
+	It is called the Haenam Dinosaur Museum. The picture below shows a dinosaur breaking out of the museum 
+	on the run, a clever structure that captives passer byers. Inside the building, real 
+	footprints of large dinosaurs are present, along with old bones and fossils. There are
+	also large dinosaurs outside the structure, where thousands of pictures of were taken. 
+	Because of its educational attribute, the museum is a popular field trip site for many
+	elementary schools. </p>
+	
+https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiM-q7m_ujWAhUK12MKHSjcBEoQjRwIBw&url=http%3A%2F%2Fwww.netkoa.org%2Fen%2Fread.php%3Fno%3D358&psig=AOvVaw05GG5QVQGIpdMCzWpYyasU&ust=1507825753843456
+https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjl5sqG_ujWAhUQ_mMKHXgcARYQjRwIBw&url=https%3A%2F%2Fluxuryasiavacation.com%2Ffeatured%2Ftravel-tips-for-seoul-south-korea.html&psig=AOvVaw3JVnvKIa57todXQGePiS0g&ust=1507825555318913
+</body>
+</html>

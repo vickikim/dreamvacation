@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* nav bar*/
+h1 {
+	color :white;
+	font-size: 30px;
+	text-align: center;
+}
+body { 
+	
+	background-image:url("galaxy.jpg");
+	}
+	
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: PowderBlue;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: #000;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	
+}
+
+li a.active {
+	background-color: black;
+	color: #DDFBFE;
+}	
+	
+/* Change the link color on hover */
+li a:hover {
+	background-color: #DDFBFE;
+	color: black;
+}
+
+</style>
+</head>
+<body>
+
+<title> My Dream Vacation </title>
+<h1>My Dream Vacation</h1>
+
+<ul>
+	<li><a class="active" href="dreamvacation.html">Home</a></li>
+	<li><a href="korea.html">Korea</a></li> 
+	<li><a href="Japan.html">Japan</a></li>
+	<li><a href="france.html">France</a></li>
+	
+</ul>
+
+<!-- this is where you can change the size of the map -->
+<div id="googleMap" style="width:100%;height:500px;"></div>
+
+<script>
+function myMap() {
+//latitude & longitude of where the map is centered
+//how zoomed in the map is
+//mapProp is a dictionary similar to how your css styles worked
+//west and south have negative values for latitude & longitude
+var mapCenter = new google.maps.LatLng(42.13400407754308, 74.08050080501836);
+var mapProp= {
+    center:mapCenter,
+    zoom:4,
+};
+//the map has to be created up here before you can add markers to it
+//notice that it's below mapProp because map needs mapProp to exist to work.
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+
+var korea = new google.maps.LatLng(35.9078, 127.7669);
+
+var japan = new google.maps.LatLng(36.2048, 138.2529);
+
+var france = new google.maps.LatLng(46.2276, 2.2137);
+
+//add some markers to the map for each spot
+//step 1: create the marker with a descriptive var name
+//the position is the LatLng object you created earlier
+var koreaMarker = new google.maps.Marker({position: korea, icon:'korea.png'});
+//step 2: add it to the map
+koreaMarker.setMap(map);
+var japanMarker = new google.maps.Marker({position: japan, icon:'japan.png'});
+japanMarker.setMap(map);
+var franceMarker = new google.maps.Marker({position: france, icon:'france.png'});
+//step 2: add it to the map
+franceMarker.setMap(map);
+
+//Example of a polyline
+var myTrip = [france,korea,japan];
+var flightPath = new google.maps.Polyline({
+  path:myTrip,
+  strokeColor:"#C70039",
+  strokeOpacity:0.8,
+  strokeWeight:2
+
+});
+//don't forget to add it to the map
+flightPath.setMap(map);
+
+
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA60oyhCzlPYHXDwmEi2_xFbKbD7hG6zrI&callback=myMap"></script>
+<p style="text-align: center;"><font size="5" color="white">Our dream vacation is to go to France, Korea, and Japan.
+Being Korean is a main cause of our love for Korea and the culture which is why we want to 
+go there (also Korean food is muy delicioso). I personally want to go to Japan because I think that
+their language is beautiful. I also watched many Japanese dramas and there were many things
+that I wanted to experience. France has many charming attractions. </p>
+</body>
+</html>
